@@ -4,7 +4,6 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="#">ThermoFisher</a>
-  
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <div class="navbar-nav mr-auto mt-2 mt-lg-0"> <!-- <ul></ul> -->
         <!-- <li class="nav-item active">
@@ -24,10 +23,11 @@
               <a class="dropdown-item" href="#">Technology</a>
               <a class="dropdown-item" href="#">Vendors</a>
               <a class="dropdown-item" href="#">Experts</a>
+              <a class="dropdown-item" href="#">Experts</a>
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a (click)="navOptionClicked($event)" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               About Immersive Tech
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -50,44 +50,47 @@
       </div>
     </div>
   </nav>
-
   <!-- Nav Sub-menu Options -->
-  <div style="min-height: 80px; background: rgb(247, 247, 247);">
-    <ul style="list-style: none; display: flex; justify-content: space-around; width: 26rem; float: right; margin: 1rem 12rem 1rem 0;">
+  <div class="submenu-container" *ngIf="showSubMenu" style="min-height: 80px; background: rgb(247, 247, 247);">
+    <ul [ngClass]="{'small-list': navOptions.length <= 4, 'normal-list': navOptions.length >= 4}">
       <li *ngFor="let option of navOptions">
         {{option}}
         <a href=""></a>
       </li>
     </ul>
   </div>
-
   <!-- Hero banner -->
-  <section>
-    <div style="background: black; height: 15rem;"></div>
+  <section style="clear: both;">
+    <div style="background: black; height: 25rem;"></div>
   </section>
-  <!-- Carrousel 
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner" style="height: 35rem;">
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="../assets/img/guide.jpg" alt="First slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="../assets/img/guide.jpg" alt="Second slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="../assets/img/guide.jpg" alt="Third slide">
+  <!-- Tabs Komodo component-->
+  <app-tabs-component>
+    <!-- *ngFor="let content of navsContent" 
+  [navsConfig]="content"
+  [name]="content.name"
+  [id]="content.id" -->
+    <!-- ng-content 
+      <h1>{{content.title}}</h1>
+      <h2>{{content.content}}</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis sit, facere iste id quae nesciunt explicabo omnis? Corporis, sequi omnis laboriosam dignissimos natus iure. Quaerat incidunt eum nobis numquam quidem.</p>
+   ng-content -->
+  </app-tabs-component>
+  <!-- Navigation Komodo component -->
+  <!-- <section>
+    <div class="c-nav">
+      <div class="c-nav__container">
+        <div class="c-nav__links">
+          <div class="c-nav__item c-nav--active">
+            <a href="#specifications">Specifications</a></div>
+          <div class="c-nav__item">
+            <a href="#products">Related products</a></div>
+        </div>
       </div>
     </div>
-  </div>-->
-
-  <!-- Tabs Komodo component-->
-  <app-tabs-component></app-tabs-component>
-  
-
-  <section style="position: relative;">
-    <div style="position: absolute; top: 55rem; width: 100%;">
-
-    <!-- Informative section -->
+  </section> -->
+  <!-- Informative section -->
+  <section> <!-- style="position: relative;"-->
+    <div> <!-- style="position: absolute; top: 55rem; width: 100%;" -->
     <div class="jumbotron" style="padding: 4rem 20rem;">
       <div class="row">
         <div class="col-md-6">
@@ -124,22 +127,16 @@
         </div>
       </div>
     </div>
-
     <!-- Success Stories section -->
     <app-stories></app-stories>
-
     <!-- Top button -->
     <div style="display: flex; justify-content: flex-end; align-items: baseline; margin: 8rem 1rem 2rem 0;">
         <p>Back to the top</p>
         <button class="btn btn-sm btn-danger">Icon</button>
     </div>
-
     <!-- Footer -->
     <app-footer></app-footer>
-
     </div>
   </section>
-  
 </body>
-
 <!-- <app-home-page class="col-xs-12 col-sm-12 col-md-12"></app-home-page> -->
