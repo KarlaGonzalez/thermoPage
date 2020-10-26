@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -8,6 +9,8 @@ import { VideoComponentComponent } from './video-component/video-component.compo
 import { VideoComponentDirective } from './directives/video-component.directive';
 import { StoriesComponent } from './stories/stories.component';
 import { FooterComponent } from './footer/footer.component';
+import { SummaryComponent } from './summary/summary.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -17,10 +20,13 @@ import { FooterComponent } from './footer/footer.component';
     VideoComponentComponent,
     VideoComponentDirective,
     StoriesComponent,
-    FooterComponent  
+    FooterComponent,
+    SummaryComponent,
+    HeaderComponent  
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

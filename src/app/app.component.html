@@ -1,142 +1,27 @@
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">ThermoFisher</a>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      <div class="navbar-nav mr-auto mt-2 mt-lg-0"> <!-- <ul></ul> -->
-        <!-- <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li> -->
-      </div>
-      <div class="my-2 my-lg-0">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <!-- <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li> -->
-          <li class="nav-item dropdown">
-            <a (click)="navOptionClicked($event)" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Catalog
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Technology</a>
-              <a class="dropdown-item" href="#">Vendors</a>
-              <a class="dropdown-item" href="#">Experts</a>
-              <a class="dropdown-item" href="#">Experts</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a (click)="navOptionClicked($event)" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              About Immersive Tech
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">About Us</a>
-              <a class="dropdown-item" href="#">Our Mission</a>
-              <!-- <div class="dropdown-divider"></div> -->
-              <a class="dropdown-item" href="#">Our Values</a>
-              <a class="dropdown-item" href="#">Tech Overview</a>
-              <a class="dropdown-item" href="#">The DTO</a>
-              <a class="dropdown-item" href="#">How We Help</a>
-              <a class="dropdown-item" href="#">Dev Team</a>
-              <a class="dropdown-item" href="#">BU Support</a>
-              <a class="dropdown-item" href="#">Partnerships</a>
-            </div>
-          </li>
-          <!-- <li class="nav-item active">
-            <a class="nav-link" href="#">Catalog</a>
-          </li> -->
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- Nav Sub-menu Options -->
-  <div class="submenu-container" *ngIf="showSubMenu" style="min-height: 80px; background: rgb(247, 247, 247);">
-    <ul [ngClass]="{'small-list': navOptions.length <= 4, 'normal-list': navOptions.length >= 4}">
-      <li *ngFor="let option of navOptions">
-        {{option}}
-        <a href=""></a>
-      </li>
-    </ul>
-  </div>
+  <!-- Header -->
+  <app-header></app-header>
   <!-- Hero banner -->
   <section style="clear: both;">
-    <div style="background: black; height: 25rem;"></div>
+    <div style="background: black; height: 26rem;">
+      <p style="height: 25px; color: rgb(255, 255, 255); font-size: 16px; font-family: HelveticaNeue-Bold; font-weight: bold; text-align: center; letter-spacing: 0px; line-height: 25px;padding-top: 5rem; margin-bottom: 2.5rem;">
+        {{bannerTitle}}
+      </p>
+      <hr style="width: 32px; border: 1px solid rgb(231, 19, 22);">
+    </div>
   </section>
   <!-- Tabs Komodo component-->
-  <app-tabs-component>
-    <!-- *ngFor="let content of navsContent" 
-  [navsConfig]="content"
-  [name]="content.name"
-  [id]="content.id" -->
-    <!-- ng-content 
-      <h1>{{content.title}}</h1>
-      <h2>{{content.content}}</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis sit, facere iste id quae nesciunt explicabo omnis? Corporis, sequi omnis laboriosam dignissimos natus iure. Quaerat incidunt eum nobis numquam quidem.</p>
-   ng-content -->
-  </app-tabs-component>
-  <!-- Navigation Komodo component -->
-  <!-- <section>
-    <div class="c-nav">
-      <div class="c-nav__container">
-        <div class="c-nav__links">
-          <div class="c-nav__item c-nav--active">
-            <a href="#specifications">Specifications</a></div>
-          <div class="c-nav__item">
-            <a href="#products">Related products</a></div>
-        </div>
-      </div>
-    </div>
-  </section> -->
+  <app-tabs-component></app-tabs-component>
   <!-- Informative section -->
-  <section> <!-- style="position: relative;"-->
-    <div> <!-- style="position: absolute; top: 55rem; width: 100%;" -->
-    <div class="jumbotron" style="padding: 4rem 20rem;">
-      <div class="row">
-        <div class="col-md-6">
-          <p class="lead">Evaluation Summary</p>
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Price</th>
-                <th scope="col">5</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Volume</th>
-                <td>5</td>
-              </tr>
-              <tr>
-                <th scope="row">Intraday High</th>
-                <td>5</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <p class="lead">Evaluation Summary</p>
-            <ul>
-              <li>Operation Execution</li>
-              <li>Reduce errors and help increase safety</li>
-              <li>Improve tranining and processes</li>
-              <li>Service-disabled veteran-owned bussines</li>
-              <li>Standarized skills and reinforce compliance</li>
-              <li>Increase retention and close knowledge gap</li>
-            </ul>
-        </div>
+  <app-summary></app-summary>
+  <!-- Success Stories section -->
+  <app-stories></app-stories>
+  <!-- Top button -->
+  <div class="c-card__cta" style="display: flex; justify-content: flex-end; align-items: center; margin: 8rem 1rem 2rem 0;">
+      <p style="margin-bottom: 0; color: rgb(84, 88, 90); font-family: HelveticaNeue; font-size: 12px; height: 22px; letter-spacing: 0px; line-height: 22px;">Back to the top</p>
+      <div (click)="toTheTop()" class="top-button">
       </div>
-    </div>
-    <!-- Success Stories section -->
-    <app-stories></app-stories>
-    <!-- Top button -->
-    <div style="display: flex; justify-content: flex-end; align-items: baseline; margin: 8rem 1rem 2rem 0;">
-        <p>Back to the top</p>
-        <button class="btn btn-sm btn-danger">Icon</button>
-    </div>
+  </div>
     <!-- Footer -->
-    <app-footer></app-footer>
-    </div>
-  </section>
+  <app-footer></app-footer>
 </body>
-<!-- <app-home-page class="col-xs-12 col-sm-12 col-md-12"></app-home-page> -->

@@ -1,37 +1,61 @@
+
 .container {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     height: 5000px;
 }
-/* NAV MENU */
-.small-list {
-    display: flex;
-    width: 26rem;
+// Top button icon
+.top-button {
+    background: rgb(231, 19, 22);
+    border-radius: 0px;
+    margin-right: 2rem;
+    height: 48px;
+    width: 48px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+$card-cta-icon-color: #a2a2a2;
+$card-cta-icon-size: 14px;
+.c-card__cta {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  .c-card__cta-items {
+    position: relative;
+  }
+  .c-card__cta-item {
+    display: inline-block;
+    position: relative;
+    * {
+      display: inherit;
+    }
+    a {
+      margin: 0;
+      i {
+        position: relative;
+        top: 4px;
+      }
+      p {
+        margin-left: 8px;
+      }
+    }
+  }
+  .c-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+  }
+.c-card__cta {
+  p::after {
     float: right;
-    list-style: none; 
-    justify-content: space-around;
-    margin: 1rem 12rem 1rem 0;
-}
-.normal-list {
-    display: flex;
-    list-style: none;
-    //margin: 1rem auto 1rem;
-    justify-content: space-around;
-}
-// Hides submenu dropdown bootstrap
-@media only screen and (max-width: 3000px) and (min-width: 991px) {
-    //dropdown-menu show -- <1000 - >1700
-    .dropdown-menu {
-        //background: burlywood;
-        display: none;
-    }
-}
-@media only screen and (max-width: 991px) and (min-width: 30px) {
-    .submenu-container {
-        display: none;
-        /* ul {
-            color: chartreuse;
-        } */
-    }
+    font-family: "icomoon";
+    content: "\eae0";
+    color: $card-cta-icon-color;
+    position: relative;
+    font-size: $card-cta-icon-size;
+    z-index: -1;
+  }
 }

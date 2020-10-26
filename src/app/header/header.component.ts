@@ -1,18 +1,42 @@
 import { Component, OnInit } from '@angular/core';
-import { CsvDataService } from './shared/services/csv-data.service';
+import { take } from 'rxjs/operators';
+import { CsvDataService } from '../shared/services/csv-data.service';
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class AppComponent implements OnInit {
-  bannerTitle: string; // 'Guides'
+export class HeaderComponent implements OnInit {
   navOptions: Array<String> = []; 
   showSubMenu: boolean = false;
-  constructor(private csvService: CsvDataService) {
-  }
+  //csvHeader = [];
+  csvHeader: Array<Array<string>> = [];
+  constructor(
+    private csvService: CsvDataService) {} 
   ngOnInit() {
     this.navOptions = [];
+    this.csvService.emitData$.pipe(
+      // Serves as unsubscribe & limits the number of emissions of the suscription -- add more to test the extractData() methos inside csv-data.service setTimeout 
+      take(1)
+    ).subscribe((serviceData) => {
+      console.log('Header service data: '); //
+      this.csvHeader = this.clearData(serviceData);
+      console.log(this.csvHeader);
+    });
+  }
+  clearData(csvArr) { //: Array<Array<string>>
+    /* console.log('csvArr');
+    console.log(csvArr); */
+    //const clearArray =  csvArr.filter(arr => arr.length);
+    /* const clearArray =  csvArr.filter(arr => {
+      arr != null && arr != "";
+      console.log(arr);
+    }); */
+    //REMOVE empty array from Array 
+    let filteredData = csvArr.filter( el => { //return
+      return (el != null && el != "");
+    });
+    return filteredData;
   }
   navOptionClicked(e) {
     if(!this.navOptions.length){
@@ -44,8 +68,15 @@ export class AppComponent implements OnInit {
       this.showSubMenu = false;
     }
   }
-  toTheTop() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  }
 }
+
+
+
+
+
+
+
+
+
+
+

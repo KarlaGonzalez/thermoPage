@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">ThermoFisher</a>
+  <div>
+      <!-- <hr class="divission-sm"> -->
+      <p class="left-border">Immersive Technology</p>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <div class="navbar-nav mr-auto mt-2 mt-lg-0"> <!-- <ul></ul> -->
+      <!-- <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li> -->
+    </div>
+    <div class="my-2 my-lg-0">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <!-- <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li> -->
+        <li class="nav-item dropdown">
+          <a (click)="navOptionClicked($event)" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Catalog
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Technology</a>
+            <a class="dropdown-item" href="#">Vendors</a>
+            <a class="dropdown-item" href="#">Experts</a>
+            <a class="dropdown-item" href="#">Experts</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a (click)="navOptionClicked($event)" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            About Immersive Tech
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">About Us</a>
+            <a class="dropdown-item" href="#">Our Mission</a>
+            <!-- <div class="dropdown-divider"></div> -->
+            <a class="dropdown-item" href="#">Our Values</a>
+            <a class="dropdown-item" href="#">Tech Overview</a>
+            <a class="dropdown-item" href="#">The DTO</a>
+            <a class="dropdown-item" href="#">How We Help</a>
+            <a class="dropdown-item" href="#">Dev Team</a>
+            <a class="dropdown-item" href="#">BU Support</a>
+            <a class="dropdown-item" href="#">Partnerships</a>
+          </div>
+        </li>
+        <li class="nav-item"> <!-- active-->
+          <a class="nav-link" href="#">Decision Tree</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Nav Sub-menu Options -->
+<div class="submenu-container" *ngIf="showSubMenu" style="min-height: 80px; background: rgb(247, 247, 247);">
+<ul [ngClass]="{'small-list': navOptions.length <= 4, 'normal-list': navOptions.length >= 4}">
+  <li *ngFor="let option of navOptions">
+  {{option}}
+  <a href="#"></a>
+  </li>
+</ul>
+</div>
+
+
+
+
